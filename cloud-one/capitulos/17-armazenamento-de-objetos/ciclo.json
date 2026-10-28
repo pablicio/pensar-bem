@@ -1,0 +1,15 @@
+{
+  "rule": [
+    {
+      "action": {
+        "type": "SetStorageClass",
+        "storageClass": "COLDLINE"
+      },
+      "condition": { "age": 180 }
+    },
+    {
+      "action": { "type": "Delete" },
+      "condition": { "daysSinceNoncurrentTime": 30 }
+    }
+  ]
+}

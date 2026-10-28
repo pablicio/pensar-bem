@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CORTADO.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-NOME                 PIC X(22).
+       PROCEDURE DIVISION.
+           MOVE "MARIA APARECIDA SANTOS" TO WS-NOME
+           PERFORM 1000-TESTAR
+           MOVE "ANA LUCIA FERREIRA" TO WS-NOME
+           PERFORM 1000-TESTAR
+           GOBACK.
+       1000-TESTAR.
+           IF WS-NOME(22:1) NOT = SPACE
+               DISPLAY WS-NOME " - PROVAVELMENTE CORTADO"
+           ELSE
+               DISPLAY WS-NOME " - OK"
+           END-IF.

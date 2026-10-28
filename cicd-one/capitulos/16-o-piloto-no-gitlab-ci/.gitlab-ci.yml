@@ -1,0 +1,42 @@
+imagem:
+  stage: construir
+  image: docker:27.4
+  services: [docker:27.4-dind]
+  variables:
+    DOCKER_TLS_CERTDIR: /certs
+    IMG: $CI_REGISTRY_IMAGE/api
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token
+      --password-stdin "$CI_REGISTRY"
+    - docker build -t "$IMG:sha-$CI_COMMIT_SHORT_SHA" api/
+    - docker push "$IMG:sha-$CI_COMMIT_SHORT_SHA"
+    - D=$(docker inspect -f '{{index .RepoDigests 0}}'
+      "$IMG:sha-$CI_COMMIT_SHORT_SHA")
+    - echo "DIGEST=${D#*@}" > build.env
+  artifacts:
+    reports:
+      dotenv: build.env
+
+homologacao:
+  stage: homologar
+  needs: [imagem]
+  environment: homologacao
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - ./scripts/implanta.sh "$DIGEST" homologacao
+
+producao:
+  stage: produzir
+  needs: [imagem, homologacao]
+  environment:
+    name: producao
+    url: https://api.embarque.app.br/versao
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual
+  resource_group: producao
+  script:
+    - ./scripts/implanta.sh "$DIGEST" producao

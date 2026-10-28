@@ -1,0 +1,30 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FSDEMO.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT ARQ-LITORAL ASSIGN TO LITCTA
+               ORGANIZATION IS LINE SEQUENTIAL
+               FILE STATUS IS WS-FS.
+       DATA DIVISION.
+       FILE SECTION.
+       FD  ARQ-LITORAL.
+       01  LIT-REGISTRO            PIC X(70).
+       WORKING-STORAGE SECTION.
+       01  WS-FS                   PIC XX.
+       PROCEDURE DIVISION.
+           READ ARQ-LITORAL
+           DISPLAY "READ SEM OPEN:  " WS-FS
+           OPEN INPUT ARQ-LITORAL
+           DISPLAY "OPEN:           " WS-FS
+           OPEN INPUT ARQ-LITORAL
+           DISPLAY "OPEN DE NOVO:   " WS-FS
+           READ ARQ-LITORAL
+           DISPLAY "READ:           " WS-FS
+           CLOSE ARQ-LITORAL
+           DISPLAY "CLOSE:          " WS-FS
+           CLOSE ARQ-LITORAL
+           DISPLAY "CLOSE DE NOVO:  " WS-FS
+           WRITE LIT-REGISTRO
+           DISPLAY "WRITE SEM OPEN: " WS-FS
+           GOBACK.

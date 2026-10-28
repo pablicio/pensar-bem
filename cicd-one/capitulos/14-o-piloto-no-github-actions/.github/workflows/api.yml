@@ -1,0 +1,18 @@
+  producao:
+    needs: [imagem, homologacao]
+    runs-on: ubuntu-24.04
+    environment:
+      name: producao
+      url: https://api.embarque.app.br/versao
+    concurrency:
+      group: deploy-producao
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/chave-ssh
+        with:
+          chave: ${{ secrets.DEPLOY_SSH_KEY }}
+      - run: ./scripts/implanta.sh "$D" producao
+        env:
+          D: ${{ needs.imagem.outputs.digest }}
+      - run: ./scripts/resumo.sh >> "$GITHUB_STEP_SUMMARY"

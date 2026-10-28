@@ -1,0 +1,39 @@
+name: arraia
+region: nyc
+services:
+  - name: api
+    image:
+      registry_type: DOCR
+      repository: arraia-api
+      tag: 2027.03.1
+    http_port: 8080
+    instance_size_slug: apps-d-1vcpu-2gb
+    autoscaling:
+      min_instance_count: 2
+      max_instance_count: 30
+      metrics:
+        cpu:
+          percent: 60
+    health_check:
+      http_path: /saude
+    envs:
+      - key: DATABASE_URL
+        scope: RUN_TIME
+        value: ${db.DATABASE_URL}
+      - key: PAGAMENTOS
+        scope: RUN_TIME
+        type: SECRET
+        value: EV[1:Zx9...cifrado...]
+workers:
+  - name: pedidos
+    image:
+      registry_type: DOCR
+      repository: arraia-consumidor
+      tag: 2027.03.1
+    instance_size_slug: apps-s-1vcpu-1gb
+    instance_count: 2
+databases:
+  - name: db
+    engine: PG
+    production: true
+    cluster_name: arraia-db

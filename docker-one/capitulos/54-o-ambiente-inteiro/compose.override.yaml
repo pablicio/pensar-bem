@@ -1,0 +1,22 @@
+services:
+  api:
+    ports: ["8000:8000"]
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0",
+              "--port", "8000", "--reload"]
+    develop:
+      watch:
+        - { action: sync, path: ./api, target: /app }
+        - { action: rebuild, path: ./api/requirements.txt }
+  site:
+    ports: ["8080:80"]
+    develop:
+      watch:
+        - { action: sync, path: ./site, target: /var/www/html }
+  checkin:
+    ports: ["3000:3000"]
+    command: ["node", "--watch", "server.js"]
+  adminer:
+    image: adminer:5
+    ports: ["127.0.0.1:8081:8080"]
+    networks: [dados, frente]
+    profiles: [ferramentas]

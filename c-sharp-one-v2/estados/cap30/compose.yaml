@@ -1,0 +1,44 @@
+services:
+  banco:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: prefeitura
+      POSTGRES_PASSWORD: ${SENHA_DO_BANCO}
+    volumes:
+      - dados-do-banco:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 10
+
+  migracoes:
+    image: prefeitura-migracoes:1.0
+    build:
+      context: .
+      target: migracoes
+    command:
+      - --connection
+      - >-
+        Host=banco;Database=prefeitura;Username=postgres;
+        Password=${SENHA_DO_BANCO}
+    depends_on:
+      banco:
+        condition: service_healthy
+
+  api:
+    image: prefeitura-api:1.0
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      ConnectionStrings__Principal: >-
+        Host=banco;Database=prefeitura;Username=postgres;
+        Password=${SENHA_DO_BANCO}
+      Tokens__Chave: ${CHAVE_DOS_TOKENS}
+      Sms__Chave: ${CHAVE_DO_SMS}
+    depends_on:
+      migracoes:
+        condition: service_completed_successfully
+
+volumes:
+  dados-do-banco:

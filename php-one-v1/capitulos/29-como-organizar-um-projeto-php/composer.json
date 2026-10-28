@@ -1,0 +1,19 @@
+{
+    "name": "casa-amarela/acervo",
+    "type": "project",
+    "require": {
+        "php": "^8.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "CasaAmarela\\": "src/"
+        },
+        "files": [
+            "src/funcoes.php"
+        ]
+    },
+    "scripts": {
+        "analise": "phpstan analyse",
+        "importar": "php bin/importar-doacoes.php"
+    }
+}

@@ -1,0 +1,17 @@
+services:
+  proxy:
+    image: caddy:2.10
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_dados:/data
+      - caddy_config:/config
+    networks: [frente]
+
+volumes:
+  caddy_dados:
+  caddy_config:

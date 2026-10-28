@@ -1,0 +1,14 @@
+services:
+  migracao:
+    image: ${IMAGEM_API:-serra/api:dev}
+    command: ["alembic", "upgrade", "head"]
+    env_file: [api.env]
+    depends_on:
+      banco: { condition: service_healthy }
+    restart: "no"
+    networks: [dados]
+
+  api:
+    image: ${IMAGEM_API:-serra/api:dev}
+    depends_on:
+      migracao: { condition: service_completed_successfully }

@@ -1,0 +1,6 @@
+a = float("1.652,9".replace(".", "").replace(",", "."))
+b = float("936,0".replace(".", "").replace(",", "."))
+c = float("1,0473".replace(".", "").replace(",", "."))
+print(a, 100 <= a <= 3300)
+print(b, 100 <= b <= 3300)
+print(c, 100 <= c <= 3300)

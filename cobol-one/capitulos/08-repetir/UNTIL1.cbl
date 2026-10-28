@@ -1,0 +1,13 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. UNTIL1.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-I                PIC 9(2)      VALUE 5.
+       PROCEDURE DIVISION.
+           PERFORM UNTIL WS-I > 3
+               DISPLAY "TESTE ANTES: NUNCA APARECE"
+           END-PERFORM
+           PERFORM WITH TEST AFTER UNTIL WS-I > 3
+               DISPLAY "TESTE DEPOIS: UMA VEZ, I = " WS-I
+           END-PERFORM
+           GOBACK.

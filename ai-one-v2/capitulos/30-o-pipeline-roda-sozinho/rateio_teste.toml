@@ -1,0 +1,5 @@
+# um manifesto adulterado, para ver o pipeline parar
+brutos = "dados/brutos"
+manifesto = "dados/manifesto_teste.json"
+saida = "resultados_teste"
+tarifa = 0.9412

@@ -1,0 +1,14 @@
+stages: [testar, produzir]
+default:
+  image: python:3.12.9-slim-bookworm
+testes:
+  stage: testar
+  script: [make deps lint testes]
+producao:
+  stage: produzir
+  environment: producao
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual
+  resource_group: producao
+  script: [make imagem implanta]

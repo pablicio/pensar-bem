@@ -1,0 +1,23 @@
+name: serra-testes
+services:
+  banco:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: serra
+      POSTGRES_PASSWORD: testes
+      POSTGRES_DB: ingressos
+    volumes:
+      - ./banco:/docker-entrypoint-initdb.d:ro
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "serra"]
+      interval: 2s
+      retries: 10
+  testes:
+    build: { context: ./api, target: dev }
+    environment:
+      DATABASE_URL: postgresql://serra:testes@banco/ingressos
+    depends_on:
+      banco: { condition: service_healthy }
+    command: ["pytest", "-q"]

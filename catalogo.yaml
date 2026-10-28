@@ -1,0 +1,242 @@
+livros:
+- slug: ai-one-v1
+  titulo: AI One
+  volume: Volume 1
+  subtitulo: Matemática para IA
+  serie: ai-one
+  pagina: /ai-one-v1
+  capa: /static/assets/livros/ai-one-v1.jpg
+  arquivos: 141
+  resumo: 139 arquivos de exemplo, ambiente Docker.
+  zip: zips/ai-one-v1.zip
+- slug: ai-one-v2
+  titulo: AI One
+  volume: Volume 2
+  subtitulo: Programação e Dados
+  serie: ai-one
+  pagina: /ai-one-v2
+  capa: /static/assets/livros/ai-one-v2.jpg
+  arquivos: 178
+  resumo: 164 arquivos de exemplo, geradores do projeto, ambiente Docker.
+  zip: zips/ai-one-v2.zip
+- slug: ai-one-v3
+  titulo: AI One
+  volume: Volume 3
+  subtitulo: Machine Learning
+  serie: ai-one
+  pagina: /ai-one-v3
+  capa: /static/assets/livros/ai-one-v3.jpg
+  arquivos: 170
+  resumo: 161 arquivos de exemplo, geradores do projeto, ambiente Docker.
+  zip: zips/ai-one-v3.zip
+- slug: ai-one-v4
+  titulo: AI One
+  volume: Volume 4
+  subtitulo: Redes Neurais
+  serie: ai-one
+  pagina: /ai-one-v4
+  capa: /static/assets/livros/ai-one-v4.jpg
+  arquivos: 115
+  resumo: 108 arquivos de exemplo, geradores do projeto, ambiente Docker.
+  zip: zips/ai-one-v4.zip
+- slug: ai-one-v5
+  titulo: AI One
+  volume: Volume 5
+  subtitulo: Visão Computacional
+  serie: ai-one
+  pagina: /ai-one-v5
+  capa: /static/assets/livros/ai-one-v5.jpg
+  arquivos: 157
+  resumo: 149 arquivos de exemplo, geradores do projeto, ambiente Docker.
+  zip: zips/ai-one-v5.zip
+- slug: ai-one-v6
+  titulo: AI One
+  volume: Volume 6
+  subtitulo: Sequências e Memória
+  serie: ai-one
+  pagina: /ai-one-v6
+  capa: /static/assets/livros/ai-one-v6.jpg
+  arquivos: 133
+  resumo: 124 arquivos de exemplo, geradores do projeto, ambiente Docker.
+  zip: zips/ai-one-v6.zip
+- slug: ai-one-v7
+  titulo: AI One
+  volume: Volume 7
+  subtitulo: Autoencoders e GANs
+  serie: ai-one
+  pagina: /ai-one-v7
+  capa: /static/assets/livros/ai-one-v7.jpg
+  arquivos: 77
+  resumo: 69 arquivos de exemplo, geradores do projeto, ambiente Docker.
+  zip: zips/ai-one-v7.zip
+- slug: ai-one-v8
+  titulo: AI One
+  volume: Volume 8
+  subtitulo: Atenção e Transformers
+  serie: ai-one
+  pagina: /ai-one-v8
+  capa: /static/assets/livros/ai-one-v8.jpg
+  arquivos: 122
+  resumo: 119 arquivos de exemplo, ambiente Docker.
+  zip: zips/ai-one-v8.zip
+- slug: assembly-one
+  titulo: Assembly One
+  volume: ''
+  subtitulo: Do zero ao RISC-V
+  serie: programming-one
+  pagina: /assembly-one
+  capa: /static/assets/livros/assembly-one.jpg
+  arquivos: 91
+  resumo: 86 arquivos de exemplo, ambiente Docker.
+  zip: zips/assembly-one.zip
+- slug: c-one
+  titulo: C One
+  volume: ''
+  subtitulo: Do zero ao básico em sistemas embarcados e IoT
+  serie: programming-one
+  pagina: /c-one
+  capa: /static/assets/livros/c-one.jpg
+  arquivos: 91
+  resumo: 89 arquivos de exemplo, ambiente Docker.
+  zip: zips/c-one.zip
+- slug: cobol-one
+  titulo: COBOL One
+  volume: ''
+  subtitulo: Mainframe para o Século XXI
+  serie: programming-one
+  pagina: /cobol-one
+  capa: /static/assets/livros/cobol-one.jpg
+  arquivos: 106
+  resumo: 104 arquivos de exemplo, ambiente Docker.
+  zip: zips/cobol-one.zip
+- slug: java-one
+  titulo: Java One
+  volume: ''
+  subtitulo: Aprenda, evolua, sobreviva e se divirta
+  serie: programming-one
+  pagina: /java-one
+  capa: /static/assets/livros/java-one.jpg
+  arquivos: 118
+  resumo: 78 arquivos de exemplo, projeto final, ambiente Docker.
+  zip: zips/java-one.zip
+- slug: javascript-one
+  titulo: JavaScript One
+  volume: ''
+  subtitulo: Do primeiro console.log ao painel em produção
+  serie: programming-one
+  pagina: /javascript-one
+  capa: /static/assets/livros/javascript-one.jpg
+  arquivos: 103
+  resumo: 82 arquivos de exemplo, projeto final, ambiente Docker.
+  zip: zips/javascript-one.zip
+- slug: python-one
+  titulo: Python One
+  volume: ''
+  subtitulo: Do primeiro print à API REST em produção
+  serie: programming-one
+  pagina: /python-one
+  capa: /static/assets/livros/python-one.jpg
+  arquivos: 278
+  resumo: 228 arquivos de exemplo, projeto final, ambiente Docker.
+  zip: zips/python-one.zip
+- slug: ruby-one
+  titulo: Ruby One
+  volume: ''
+  subtitulo: Do primeiro puts ao contrato em produção
+  serie: programming-one
+  pagina: /ruby-one
+  capa: /static/assets/livros/ruby-one.jpg
+  arquivos: 114
+  resumo: 74 arquivos de exemplo, projeto final, ambiente Docker.
+  zip: zips/ruby-one.zip
+- slug: c-sharp-one-v1
+  titulo: C# One
+  volume: Volume 1
+  subtitulo: Fundamentos de C#
+  serie: programming-one
+  pagina: /c-sharp-one-v1
+  capa: /static/assets/livros/c-sharp-one-v1.jpg
+  arquivos: 61
+  resumo: 59 arquivos de exemplo, ambiente Docker.
+  zip: zips/c-sharp-one-v1.zip
+- slug: php-one-v1
+  titulo: PHP One
+  volume: Volume 1
+  subtitulo: Fundamentos do PHP
+  serie: programming-one
+  pagina: /php-one-v1
+  capa: /static/assets/livros/php-one-v1.jpg
+  arquivos: 208
+  resumo: 179 arquivos de exemplo, projeto final, ambiente Docker.
+  zip: zips/php-one-v1.zip
+- slug: c-sharp-one-v2
+  titulo: C# One
+  volume: Volume 2
+  subtitulo: .NET de verdade
+  serie: programming-one
+  pagina: /c-sharp-one-v2
+  capa: /static/assets/livros/c-sharp-one-v2.jpg
+  arquivos: 1074
+  resumo: snapshots da API por capítulo, projeto final (prefeitura/).
+  zip: zips/c-sharp-one-v2.zip
+- slug: php-one-v2
+  titulo: PHP One
+  volume: Volume 2
+  subtitulo: Acelerando com Laravel
+  serie: programming-one
+  pagina: /php-one-v2
+  capa: /static/assets/livros/php-one-v2.jpg
+  arquivos: 181
+  resumo: 150 arquivos de exemplo, projeto final, ambiente Docker.
+  zip: zips/php-one-v2.zip
+- slug: cicd-one
+  titulo: CI/CD One
+  volume: ''
+  subtitulo: Integração e entrega contínuas, com GitHub Actions, GitLab CI, CircleCI
+    e Jenkins
+  serie: infra-one
+  pagina: /cicd-one
+  capa: /static/assets/livros/cicd-one.jpg
+  arquivos: 53
+  resumo: 52 arquivos de exemplo.
+  zip: zips/cicd-one.zip
+- slug: cloud-one
+  titulo: Cloud One
+  volume: ''
+  subtitulo: Fundamentos de nuvem, com AWS, Google Cloud, Azure e DigitalOcean
+  serie: infra-one
+  pagina: /cloud-one
+  capa: /static/assets/livros/cloud-one.jpg
+  arquivos: 14
+  resumo: 13 arquivos de exemplo.
+  zip: zips/cloud-one.zip
+- slug: docker-one
+  titulo: Docker One
+  volume: ''
+  subtitulo: Da minha máquina à produção, sem mistério
+  serie: infra-one
+  pagina: /docker-one
+  capa: /static/assets/livros/docker-one.jpg
+  arquivos: 62
+  resumo: 61 arquivos de exemplo.
+  zip: zips/docker-one.zip
+- slug: linux-one
+  titulo: Linux One
+  volume: ''
+  subtitulo: Terminal, shell e as ferramentas que todo dev usa todo dia
+  serie: infra-one
+  pagina: /linux-one
+  capa: /static/assets/livros/linux-one.jpg
+  arquivos: 10
+  resumo: 9 arquivos de exemplo.
+  zip: zips/linux-one.zip
+- slug: sql-one
+  titulo: SQL One
+  volume: ''
+  subtitulo: Perguntas certas para bancos de verdade
+  serie: infra-one
+  pagina: /sql-one
+  capa: /static/assets/livros/sql-one.jpg
+  arquivos: 12
+  resumo: 5 arquivos de exemplo, ambiente Docker.
+  zip: zips/sql-one.zip

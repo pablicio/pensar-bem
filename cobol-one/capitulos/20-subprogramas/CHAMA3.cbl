@@ -1,0 +1,8 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CHAMA3.
+       PROCEDURE DIVISION.
+           CALL "CONTACH"
+           CALL "CONTACH"
+           CANCEL "CONTACH"
+           CALL "CONTACH"
+           GOBACK.

@@ -1,0 +1,10 @@
+on:
+  push:
+    paths: ["notificador/**"]
+jobs:
+  pipeline:
+    uses: ./.github/workflows/servico-python.yml
+    with:
+      pasta: notificador
+    secrets:
+      SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}

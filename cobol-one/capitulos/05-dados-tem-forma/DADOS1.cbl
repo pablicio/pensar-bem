@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. DADOS1.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-AGENCIA          PIC 9(4)      VALUE 1.
+       01  WS-NOME-CLIENTE     PIC X(20)     VALUE "MARIA DA SILVA".
+       01  WS-SALDO            PIC 9(5)V99   VALUE 123.45.
+       PROCEDURE DIVISION.
+           DISPLAY "AGENCIA: [" WS-AGENCIA "]"
+           DISPLAY "CLIENTE: [" WS-NOME-CLIENTE "]"
+           DISPLAY "SALDO:   [" WS-SALDO "]"
+           GOBACK.

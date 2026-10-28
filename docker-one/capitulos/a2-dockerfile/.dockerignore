@@ -1,0 +1,11 @@
+.git
+.env
+.env.*
+!.env.exemplo
+*.sql
+*.dump
+node_modules
+vendor
+__pycache__
+Dockerfile
+compose*.yaml

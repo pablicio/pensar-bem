@@ -1,0 +1,16 @@
+services:
+  banco:
+    image: postgres:17
+    volumes:
+      - dados:/var/lib/postgresql/data
+  site:
+    build: ./site
+    volumes:
+      - ./site:/var/www/html:ro
+  api:
+    build: ./api
+    tmpfs:
+      - /tmp/recibos:size=64m
+
+volumes:
+  dados:

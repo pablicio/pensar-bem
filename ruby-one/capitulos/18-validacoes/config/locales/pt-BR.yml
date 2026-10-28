@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      contract: Contrato
+    attributes:
+      contract:
+        responsible: Responsável no canteiro
+        start_date: Início da cobrança
+        end_date: Devolução prevista
+        equipment: Equipamento
+  errors:
+    messages:
+      blank: não pode ficar em branco
+      required: é obrigatório

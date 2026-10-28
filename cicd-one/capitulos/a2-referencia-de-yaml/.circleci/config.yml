@@ -1,0 +1,19 @@
+version: 2.1
+jobs:
+  testes:
+    docker: [{ image: cimg/python:3.12.9 }]
+    steps: [checkout, run: make deps lint testes]
+  producao:
+    docker: [{ image: cimg/python:3.12.9 }]
+    steps: [checkout, run: make imagem implanta]
+workflows:
+  pipeline:
+    jobs:
+      - testes
+      - aprovar:
+          type: approval
+          requires: [testes]
+          filters: { branches: { only: main } }
+      - producao:
+          requires: [aprovar]
+          context: producao

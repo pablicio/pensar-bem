@@ -1,0 +1,6 @@
+{
+  "name": "painel",
+  "dependencies": {
+    "axios": "0.21.1"
+  }
+}

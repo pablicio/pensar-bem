@@ -1,0 +1,11 @@
+05:30  todos online; tmux aberto; painéis na televisão
+05:45  aviso de manutenção no aplicativo (só leitura)
+06:00  API do rack em modo só leitura: escritas recusadas
+06:02  conferir: réplica alcançou o rack (atraso = 0)
+06:05  promover o Cloud SQL; ajustar sequências; conferir
+06:15  contagem de pedidos, camarotes e usuários: rack = nuvem
+06:20  Cloud Run com o banco novo; teste com --resolve
+06:30  DNS: arraia.app -> balanceador global (TTL 300 s)
+06:40  conferir de fora: dig, curl, pedido de teste
+06:50  tirar o aviso de manutenção
+07:00  rack desligado da internet; fica parado 30 dias

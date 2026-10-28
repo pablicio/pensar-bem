@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. NIVEIS1.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-CONTA.
+           05  WS-AGENCIA      PIC 9(4)      VALUE 1.
+           05  WS-NUMERO       PIC 9(8)      VALUE 123456.
+           05  WS-DIGITO       PIC X(1)      VALUE "X".
+       PROCEDURE DIVISION.
+           DISPLAY "AGENCIA: " WS-AGENCIA
+           DISPLAY "NUMERO:  " WS-NUMERO
+           DISPLAY "CONTA:   " WS-CONTA
+           DISPLAY "TAMANHO: " LENGTH OF WS-CONTA
+           GOBACK.

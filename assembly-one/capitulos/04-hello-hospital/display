@@ -1,0 +1,4 @@
+#!/bin/sh
+# display: faz o papel do display da parede. Lê números de 16 bits,
+# sem sinal, e mostra cada um com cinco dígitos.
+od -An -tu2 -w2 -v | awk '{ printf "%05d\n", $1 }'

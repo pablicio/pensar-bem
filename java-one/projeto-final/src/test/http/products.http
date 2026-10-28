@@ -1,0 +1,27 @@
+@host = http://localhost:8080
+@token = {{login.response.body.token}}
+
+### login
+# @name login
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{ "email": "admin@aurora.com", "password": "admin123" }
+
+### listar produtos
+GET {{host}}/products?page=0&size=5
+
+### criar produto
+POST {{host}}/products
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Teclado mecânico",
+  "price": 349.90,
+  "quantity": 12
+}
+
+### apagar
+DELETE {{host}}/products/1
+Authorization: Bearer {{token}}

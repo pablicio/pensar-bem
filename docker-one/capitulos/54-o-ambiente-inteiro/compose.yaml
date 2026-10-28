@@ -1,0 +1,75 @@
+name: serra
+
+x-api: &api
+  image: ${IMAGEM_API:-serra/api:dev}
+  build: { context: ./api, target: prod }
+  env_file: [api.env]
+  networks: [frente, dados]
+
+services:
+  banco:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: serra
+      POSTGRES_PASSWORD: ${SENHA_BANCO:?defina SENHA_BANCO}
+      POSTGRES_DB: ingressos
+    volumes: [dados:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "serra"]
+      interval: 5s
+      retries: 10
+    networks: [dados]
+    restart: unless-stopped
+
+  cache:
+    image: redis:7.4-alpine
+    command: [redis-server, --save, "", --appendonly, "no",
+              --maxmemory, 256mb, --maxmemory-policy, noeviction]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+    networks: [dados]
+    restart: unless-stopped
+
+  migracao:
+    <<: *api
+    command: ["alembic", "upgrade", "head"]
+    depends_on: { banco: { condition: service_healthy } }
+    restart: "no"
+
+  api:
+    <<: *api
+    depends_on:
+      migracao: { condition: service_completed_successfully }
+      cache: { condition: service_healthy }
+    restart: unless-stopped
+
+  fiscal:
+    build: ./fiscal
+    image: ${IMAGEM_FISCAL:-serra/fiscal:dev}
+    env_file: [fiscal.env]
+    stop_grace_period: 30s
+    networks: [frente, dados]
+    restart: unless-stopped
+
+  site:
+    build: ./site
+    image: ${IMAGEM_SITE:-serra/site:dev}
+    environment: { API_URL: "http://api:8000" }
+    networks: [frente]
+    restart: unless-stopped
+
+  checkin:
+    build: ./checkin
+    image: ${IMAGEM_CHECKIN:-serra/checkin:dev}
+    environment: { API_URL: "http://api:8000" }
+    depends_on: { api: { condition: service_healthy } }
+    networks: [frente]
+    restart: unless-stopped
+
+networks:
+  frente:
+  dados:
+    internal: true
+
+volumes:
+  dados:

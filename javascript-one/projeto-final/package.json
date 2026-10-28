@@ -1,0 +1,11 @@
+{
+  "name": "borba",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node servidor.js",
+    "test": "node --test"
+  }
+}

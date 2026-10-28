@@ -1,0 +1,3 @@
+		lb_try_duration 3s
+		lb_try_interval 250ms
+		fail_duration 30s

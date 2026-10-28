@@ -1,0 +1,16 @@
+workflows:
+  api:
+    jobs:
+      - lint
+      - testes
+      - imagem:
+          requires: [lint, testes]
+          filters:
+            branches:
+              only: main
+      - aprovar-producao:
+          type: approval
+          requires: [imagem]
+      - producao:
+          requires: [aprovar-producao]
+          context: producao

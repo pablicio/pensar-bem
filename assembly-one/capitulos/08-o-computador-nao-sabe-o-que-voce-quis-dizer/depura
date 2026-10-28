@@ -1,0 +1,16 @@
+#!/bin/sh
+# depura: monta e liga como o roda, e abre o programa no gdb, parado
+# na primeira instrução.
+# uso: depura programa.s [outros.s ...]
+set -e
+objetos=""
+for fonte in "$@"; do
+    objeto="${fonte%.s}.o"
+    riscv64-linux-gnu-as -g -o "$objeto" "$fonte"
+    objetos="$objetos $objeto"
+done
+executavel="${1%.s}"
+riscv64-linux-gnu-ld --no-relax -o "$executavel" $objetos
+qemu-riscv64 -g 1234 "./$executavel" < "${ENTRADA:-/dev/null}" \
+    > /dev/null &
+exec gdb-multiarch -q -nx -ex "target remote :1234" "$executavel"

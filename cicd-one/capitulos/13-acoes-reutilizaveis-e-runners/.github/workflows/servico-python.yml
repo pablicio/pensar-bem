@@ -1,0 +1,15 @@
+on:
+  workflow_call:
+    inputs:
+      pasta:
+        type: string
+        required: true
+    secrets:
+      SSH_KEY:
+        required: true
+jobs:
+  testes:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: make -C "${{ inputs.pasta }}" testes

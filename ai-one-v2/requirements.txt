@@ -1,0 +1,6 @@
+numpy==2.4.6
+pandas==3.0.6
+pyarrow==26.0.0
+matplotlib==3.11.2
+openpyxl==3.1.5
+pytest==9.1.1

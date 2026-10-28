@@ -1,0 +1,8 @@
+        {
+            "name": "symfony/var-dumper",
+            "version": "v7.2.3",
+            "source": {
+                "type": "git",
+                "reference": "a75bf8b0f8b9d0a92f0cb4e6c6b8"
+            }
+        }

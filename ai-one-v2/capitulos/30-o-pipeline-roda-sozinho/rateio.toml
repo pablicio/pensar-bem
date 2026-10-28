@@ -1,0 +1,5 @@
+# configuração do rateio da Coopersol Cerrado
+brutos = "dados/brutos"
+manifesto = "dados/manifesto_brutos.json"
+saida = "resultados"
+tarifa = 0.9412       # R$ por kWh compensado, tabela da GED

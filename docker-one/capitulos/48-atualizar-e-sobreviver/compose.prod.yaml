@@ -1,0 +1,6 @@
+  backup:
+    image: ghcr.io/serra-ingressos/backup:1.0
+    profiles: [tarefas]
+    env_file: [backup.env]
+    secrets: [senha_banco]
+    networks: [dados, frente]

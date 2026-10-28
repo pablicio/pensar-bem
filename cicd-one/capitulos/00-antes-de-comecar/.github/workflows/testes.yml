@@ -1,0 +1,8 @@
+name: testes
+on: push
+jobs:
+  testes:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: make testes

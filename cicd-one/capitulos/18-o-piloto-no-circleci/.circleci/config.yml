@@ -1,0 +1,33 @@
+  implanta:
+    executor: py
+    parameters:
+      ambiente: {type: string}
+    steps:
+      - checkout
+      - attach_workspace: {at: .}
+      - add_ssh_keys
+      - run: ./scripts/implanta.sh "$(cat digest.txt)"
+          << parameters.ambiente >>
+
+workflows:
+  api:
+    jobs:
+      - lint
+      - testes
+      - imagem:
+          requires: [lint, testes]
+          filters: {branches: {only: main}}
+          context: registro
+      - implanta:
+          name: homologacao
+          ambiente: homologacao
+          requires: [imagem]
+          context: homologacao
+      - aprovar:
+          type: approval
+          requires: [homologacao]
+      - implanta:
+          name: producao
+          ambiente: producao
+          requires: [aprovar]
+          context: producao

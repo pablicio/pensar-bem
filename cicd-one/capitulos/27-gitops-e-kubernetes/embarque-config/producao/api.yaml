@@ -1,0 +1,7 @@
+spec:
+  replicas: 4
+  template:
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/mare-digital/embarque-api@sha256:…

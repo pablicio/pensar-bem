@@ -1,0 +1,17 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ROUND1.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-R                PIC S9(5)V99.
+       PROCEDURE DIVISION.
+           COMPUTE WS-R ROUNDED = 2.344
+           DISPLAY " 2.344 ROUNDED      -> " WS-R
+           COMPUTE WS-R ROUNDED = 2.345
+           DISPLAY " 2.345 ROUNDED      -> " WS-R
+           COMPUTE WS-R ROUNDED = -2.345
+           DISPLAY "-2.345 ROUNDED      -> " WS-R
+           COMPUTE WS-R ROUNDED MODE NEAREST-EVEN = 2.345
+           DISPLAY " 2.345 NEAREST-EVEN -> " WS-R
+           COMPUTE WS-R ROUNDED MODE NEAREST-EVEN = 2.355
+           DISPLAY " 2.355 NEAREST-EVEN -> " WS-R
+           GOBACK.

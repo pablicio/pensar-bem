@@ -1,0 +1,16 @@
+on: { push: { branches: [main] }, pull_request: {} }
+permissions: { contents: read }
+jobs:
+  testes:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: make deps lint testes
+  producao:
+    if: github.ref == 'refs/heads/main'
+    needs: testes
+    runs-on: ubuntu-24.04
+    environment: producao
+    steps:
+      - uses: actions/checkout@v4
+      - run: make imagem implanta

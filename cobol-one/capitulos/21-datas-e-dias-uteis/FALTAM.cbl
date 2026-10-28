@@ -1,0 +1,13 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FALTAM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-HOJE                 PIC 9(8)      VALUE 20261217.
+       01  WS-APOSENTADORIA        PIC 9(8)      VALUE 20270331.
+       01  WS-DIAS                 PIC 9(5).
+       PROCEDURE DIVISION.
+           COMPUTE WS-DIAS =
+                   FUNCTION INTEGER-OF-DATE(WS-APOSENTADORIA)
+                 - FUNCTION INTEGER-OF-DATE(WS-HOJE)
+           DISPLAY "FALTAM " WS-DIAS " DIAS"
+           GOBACK.

@@ -1,0 +1,16 @@
+  deploy:
+    needs: publicar
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-24.04
+    environment: producao
+    steps:
+      - run: |
+          mkdir -p ~/.ssh
+          echo "$CHAVE" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$SERVIDOR" >> ~/.ssh/known_hosts
+          ssh deploy@"$SERVIDOR" \
+            "/srv/serra/deploy.sh ${GITHUB_REF_NAME#v}"
+        env:
+          CHAVE: ${{ secrets.DEPLOY_SSH_KEY }}
+          SERVIDOR: ${{ vars.SERVIDOR_PRODUCAO }}

@@ -1,0 +1,6 @@
+# padrão: qualquer pessoa da equipe
+*                          @mare-digital/equipe
+# dados pessoais e infraestrutura pedem revisão específica
+/api/app/passageiros/      @davi-sarmento @katia-lobato
+/infra/                    @wendel-ferreira
+/.github/workflows/        @wendel-ferreira @davi-sarmento

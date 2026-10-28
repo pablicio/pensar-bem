@@ -1,0 +1,14 @@
+services:
+  banco:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: serra
+      POSTGRES_PASSWORD: ${SENHA_BANCO:?}
+      POSTGRES_DB: ingressos
+    volumes:
+      - dados:/var/lib/postgresql/data
+      - ./banco:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "serra"]
+      interval: 5s
+      retries: 5

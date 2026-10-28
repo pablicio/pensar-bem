@@ -1,0 +1,16 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. META1.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-MESES            PIC 9(3)      VALUE 0.
+       01  WS-SALDO            PIC S9(13)V99 VALUE 10000.00.
+       01  WS-RENDIMENTO       PIC S9(13)V99.
+       PROCEDURE DIVISION.
+           PERFORM UNTIL WS-SALDO >= 11000
+               COMPUTE WS-RENDIMENTO ROUNDED = WS-SALDO * 0.005
+               ADD WS-RENDIMENTO TO WS-SALDO
+               ADD 1 TO WS-MESES
+           END-PERFORM
+           DISPLAY "MESES: " WS-MESES
+           DISPLAY "SALDO: " WS-SALDO
+           GOBACK.

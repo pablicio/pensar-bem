@@ -1,0 +1,4 @@
+<env name="APP_ENV" value="testing"/>
+<env name="DB_DATABASE" value="casa_amarela_teste"/>
+<env name="QUEUE_CONNECTION" value="sync"/>
+<env name="CACHE_STORE" value="array"/>

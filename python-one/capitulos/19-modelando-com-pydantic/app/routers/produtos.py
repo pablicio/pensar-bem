@@ -1,0 +1,3 @@
+@router.post("", status_code=201)
+def criar(produto: ProdutoCriar):
+    ...

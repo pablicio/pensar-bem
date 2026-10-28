@@ -1,0 +1,12 @@
+# Só para os testes do livro: liga a API ao serviço falso de mensagens.
+services:
+  api:
+    ports: !override
+      - "8090:8080"
+    environment:
+      Correio__Endereco: http://csone-sdk:5200
+      Sms__Endereco: http://csone-sdk:5200
+    networks: [default, csone]
+networks:
+  csone:
+    external: true

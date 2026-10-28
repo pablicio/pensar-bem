@@ -1,0 +1,17 @@
+<%= form_with model: @contract do |f| %>
+  <% if @contract.errors.any? %>
+    <div class="erros">
+      <% @contract.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.label :responsible %>
+  <%= f.text_field :responsible %>
+
+  <%= f.label :end_date %>
+  <%= f.date_field :end_date %>
+
+  <%= f.submit "Salvar contrato" %>
+<% end %>

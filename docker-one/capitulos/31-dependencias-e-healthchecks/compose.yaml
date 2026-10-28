@@ -1,0 +1,6 @@
+services:
+  api:
+    build: ./api
+    depends_on:
+      banco:
+        condition: service_healthy

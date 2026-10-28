@@ -1,0 +1,6 @@
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.12.6</version>
+</dependency>
+<!-- jjwt-impl e jjwt-jackson com scope runtime -->

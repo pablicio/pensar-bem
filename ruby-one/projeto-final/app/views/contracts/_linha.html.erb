@@ -1,0 +1,4 @@
+<tr class="<%= 'ocupado' if contrato.occupying? %>">
+  <td><%= contrato.equipment.patrimony %></td>
+  <td><%= rotulo_de_ocupacao(contrato) %></td>
+</tr>

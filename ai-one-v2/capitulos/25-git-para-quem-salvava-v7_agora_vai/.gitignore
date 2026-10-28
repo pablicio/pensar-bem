@@ -1,0 +1,7 @@
+# os dados ficam fora; o manifesto deles, dentro
+dados/*
+!dados/manifesto_brutos.json
+
+# o que o Python e os programas geram
+__pycache__/
+*.png

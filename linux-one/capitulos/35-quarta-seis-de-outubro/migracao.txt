@@ -1,0 +1,9 @@
+05:45  aviso de manutenção na loja (servidor velho)
+06:00  parar a loja no servidor velho
+06:02  pg_dump final do banco (velho) -> servidor novo
+06:10  restaurar o banco no servidor novo
+06:20  conferir pedidos (contagem nos dois lados)
+06:25  subir a loja no servidor novo; testar com --resolve
+06:35  trocar o DNS para 203.0.113.40 (TTL já em 300 s)
+06:45  conferir de fora: dig, curl, um pedido de teste
+07:00  fim da janela; servidor velho fica parado 7 dias

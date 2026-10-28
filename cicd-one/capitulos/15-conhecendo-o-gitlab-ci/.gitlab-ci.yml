@@ -1,0 +1,16 @@
+stages: [verificar, testar]
+
+default:
+  image: python:3.12.9-slim-bookworm
+
+lint:
+  stage: verificar
+  script:
+    - make deps
+    - make lint
+
+testes:
+  stage: testar
+  script:
+    - make deps
+    - make testes

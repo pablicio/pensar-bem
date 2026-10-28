@@ -1,0 +1,24 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FSSAIDA.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT ARQ-SAIDA ASSIGN TO SAIDA
+               ORGANIZATION IS LINE SEQUENTIAL
+               FILE STATUS IS WS-FS-SAIDA.
+       DATA DIVISION.
+       FILE SECTION.
+       FD  ARQ-SAIDA.
+       01  SAI-REGISTRO            PIC X(70).
+       WORKING-STORAGE SECTION.
+       01  WS-FS-SAIDA             PIC XX.
+       PROCEDURE DIVISION.
+           OPEN OUTPUT ARQ-SAIDA
+           IF WS-FS-SAIDA NOT = "00"
+               DISPLAY "FSSAIDA - OPEN OUTPUT SAIDA STATUS: "
+                       WS-FS-SAIDA
+               MOVE 12 TO RETURN-CODE
+               GOBACK
+           END-IF
+           CLOSE ARQ-SAIDA
+           GOBACK.

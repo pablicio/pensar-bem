@@ -1,0 +1,11 @@
+  producao:
+    needs: homologacao
+    runs-on: ubuntu-24.04
+    environment:
+      name: producao
+      url: https://api.embarque.app.br/versao
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./scripts/implanta.sh "$DIGEST" producao
+        env:
+          DIGEST: ${{ needs.imagem.outputs.digest }}

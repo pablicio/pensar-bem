@@ -1,0 +1,5 @@
+services:
+  fiscal:
+    build: ./fiscal
+    stop_grace_period: 30s
+    mem_limit: 1g

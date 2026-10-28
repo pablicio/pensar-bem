@@ -1,0 +1,26 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      DATABASE_URL: >-
+        postgresql+psycopg://catalogo:${POSTGRES_PASSWORD}@db/catalogo
+      SECRET_KEY: ${SECRET_KEY}
+    depends_on:
+      db: {condition: service_healthy}
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: catalogo
+      POSTGRES_PASSWORD: >-
+        ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD}
+      POSTGRES_DB: catalogo
+    volumes: ["dados:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U catalogo"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  dados:

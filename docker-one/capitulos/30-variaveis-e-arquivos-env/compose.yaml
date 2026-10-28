@@ -1,0 +1,11 @@
+services:
+  banco:
+    image: postgres:17
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/senha_banco
+    secrets:
+      - senha_banco
+
+secrets:
+  senha_banco:
+    file: ./segredos/senha_banco.txt

@@ -1,0 +1,12 @@
+name: prepara-python
+description: Python da versão do projeto, com cache e deps
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version-file: api/.python-version
+        cache: pip
+        cache-dependency-path: api/requirements*.txt
+    - run: make deps
+      shell: bash

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Prefeitura.Api/Prefeitura.Api.csproj" />
+  <Project Path="Prefeitura.Dominio/Prefeitura.Dominio.csproj" />
+</Solution>

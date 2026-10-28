@@ -1,0 +1,46 @@
+-- Amostra da exportação da Rede Bem-Estar: doze linhas
+-- de dezembro de 2026, dez das 214 colunas.
+CREATE TABLE movimento_geral (
+    cupom        integer,
+    data         text,
+    loja         text,
+    cidade       text,
+    cliente      text,
+    produto      text,
+    laboratorio  text,
+    qtd          integer,
+    preco        numeric(10,2)
+);
+
+INSERT INTO movimento_geral VALUES
+    (501, '01/12/2026', 'BE-01', 'Varginha',
+     'Antônio Carvalho', 'Dipirona 500 mg 10 comp.',
+     'Neoquímica', 2, 6.20),
+    (501, '01/12/2026', 'BE-01', 'Varginha',
+     'Antônio Carvalho', 'Protetor solar FPS 50 120 ml',
+     'Dermaclin', 1, 69.90),
+    (502, '01/12/2026', 'BE-02', 'Lavras', 'Cecília Prado',
+     'Losartana 50 mg 30 comp.', 'Medley', 1, 21.90),
+    (503, '02/12/2026', 'BE-01', 'Varginha', NULL,
+     'Dipirona 500 mg 10 comp.', 'Neoquímica', 1, 6.20),
+    (504, '02/12/2026', 'BE-03', 'Três Corações',
+     'Antônio Carvalho', 'Fralda infantil M pacote 60',
+     'Kids Care', 1, 82.50),
+    (504, '02/12/2026', 'BE-03', 'Três Corações',
+     'Antônio Carvalho', 'Dipirona 500 mg 10 comp.',
+     'Neoquimica', 3, 6.40),
+    (505, '03/12/2026', 'BE-02', 'Lavras', 'Cecília Prado',
+     'Protetor solar FPS 50 120 ml', 'Dermaclin', 2, 69.90),
+    (506, '03/12/2026', 'BE-01', 'Varginha', 'Rosa Vieira',
+     'Losartana 50 mg 30 comp.', 'Medley', 2, 21.90),
+    (507, '04/12/2026', 'BE-02', 'Lavra', 'Cecília Prado',
+     'Dipirona 500 mg 10 comp.', 'Neoquímica', 1, 6.20),
+    (508, '04/12/2026', 'BE-03', 'Três Corações',
+     'Rosa Vieira', 'Losartana 50 mg 30 comp.', 'Medley', 1,
+     22.50),
+    (508, '04/12/2026', 'BE-03', 'Três Corações',
+     'Rosa Vieira', 'Fralda infantil M pacote 60', 'Kids Care',
+     2, 82.50),
+    (509, '05/12/2026', 'BE-01', 'Varginha',
+     'Antônio Carvalho', 'Protetor solar FPS 50 120 ml',
+     'Dermaclin', 1, 69.90);

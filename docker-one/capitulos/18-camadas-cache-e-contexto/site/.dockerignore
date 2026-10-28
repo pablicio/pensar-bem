@@ -1,0 +1,19 @@
+# controle de versão e editores
+.git
+.vscode
+
+# dependências: a imagem instala as dela
+vendor
+node_modules
+
+# dados e segredos nunca entram numa imagem
+*.sql
+*.sql.gz
+.env
+.env.*
+!.env.exemplo
+
+# o que não é do site
+Dockerfile
+docker-compose*.yml
+README.md

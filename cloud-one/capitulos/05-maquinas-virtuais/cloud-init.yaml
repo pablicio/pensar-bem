@@ -1,0 +1,12 @@
+#cloud-config
+package_update: true
+packages:
+  - docker.io
+users:
+  - name: deploy
+    groups: docker
+    shell: /bin/bash
+runcmd:
+  - systemctl enable --now docker
+  - docker run -d --restart=always -p 80:8080 --name api \
+      ghcr.io/arraia/api:2027.01.3

@@ -1,0 +1,15 @@
+jobs:
+  android:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepara-app
+      - run: bundle exec fastlane android beta
+        working-directory: app
+  ios:
+    runs-on: [self-hosted, ios]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepara-app
+      - run: bundle exec fastlane ios beta
+        working-directory: app

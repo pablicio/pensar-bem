@@ -1,0 +1,21 @@
+services:
+  banco:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: serra
+      POSTGRES_PASSWORD: serra-dev
+      POSTGRES_DB: ingressos
+    volumes:
+      - dados:/var/lib/postgresql/data
+
+  api:
+    image: serra/api:dev
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://serra:serra-dev@banco/ingressos
+
+volumes:
+  dados:

@@ -1,0 +1,13 @@
+#!/bin/sh
+# roda: monta, liga e executa um programa RISC-V para Linux.
+# uso: roda programa.s [outros.s ...]
+set -e
+objetos=""
+for fonte in "$@"; do
+    objeto="${fonte%.s}.o"
+    riscv64-linux-gnu-as -g -o "$objeto" "$fonte"
+    objetos="$objetos $objeto"
+done
+executavel="${1%.s}"
+riscv64-linux-gnu-ld --no-relax -o "$executavel" $objetos
+exec qemu-riscv64 "./$executavel"

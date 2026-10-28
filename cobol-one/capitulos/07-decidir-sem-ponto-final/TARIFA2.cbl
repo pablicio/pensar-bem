@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. TARIFA2.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-ISENTA           PIC X         VALUE "S".
+       01  WS-TARIFA           PIC 9(3)V99   VALUE 12.90.
+       PROCEDURE DIVISION.
+       0000-PRINCIPAL.
+           IF WS-ISENTA = "N"
+               DISPLAY "CALCULA TARIFA"
+               DISPLAY "SOMA NO TOTAL DA DIRETORIA".
+               DISPLAY "DEBITA TARIFA " WS-TARIFA
+           DISPLAY "FIM".
+           GOBACK.

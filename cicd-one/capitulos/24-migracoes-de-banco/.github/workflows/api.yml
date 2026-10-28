@@ -1,0 +1,9 @@
+  migra-producao:
+    needs: [imagem, homologacao]
+    environment: producao
+    concurrency: { group: migracao-producao }
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./scripts/migra.sh "$D" producao
+        env:
+          D: ${{ needs.imagem.outputs.digest }}

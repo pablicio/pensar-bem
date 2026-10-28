@@ -1,0 +1,10 @@
+api.serraingressos.com.br {
+	reverse_proxy {
+		dynamic a api 8000 {
+			refresh 5s
+		}
+		lb_policy round_robin
+		health_uri /saude
+		health_interval 5s
+	}
+}

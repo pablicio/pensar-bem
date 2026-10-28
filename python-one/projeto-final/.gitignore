@@ -1,0 +1,21 @@
+# ambiente
+.venv/
+__pycache__/
+*.py[cod]
+
+# configuração local — NUNCA versionar
+.env
+*.pem
+*.key
+
+# ferramentas
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# editor e sistema
+.idea/
+.vscode/
+.DS_Store

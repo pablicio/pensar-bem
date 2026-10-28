@@ -1,0 +1,2 @@
+.addFilterBefore(jwtFilter,
+        UsernamePasswordAuthenticationFilter.class)

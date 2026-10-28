@@ -1,0 +1,7 @@
+{
+  "name": "borba",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

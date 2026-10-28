@@ -1,0 +1,9 @@
+on:
+  workflow_dispatch:
+    inputs:
+      versao:
+        description: "Versão a implantar (ex.: 1.4.0)"
+        required: true
+      ambiente:
+        type: choice
+        options: [homologacao, producao]

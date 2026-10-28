@@ -1,0 +1,43 @@
+name: esteira
+
+on: [push, pull_request]
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: casa_amarela_teste
+          MYSQL_ROOT_PASSWORD: teste
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=5s --health-retries=10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+
+      - run: composer install --no-interaction --prefer-dist
+
+      - name: Estilo
+        run: vendor/bin/pint --test
+
+      - name: Análise estática
+        run: vendor/bin/phpstan analyse --no-progress
+
+      - name: Nada de dd() esquecido
+        run: "! grep -rnE '\\b(dd|dump|var_dump)\\(' app/"
+
+      - name: Testes
+        run: php artisan test --parallel
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PASSWORD: teste

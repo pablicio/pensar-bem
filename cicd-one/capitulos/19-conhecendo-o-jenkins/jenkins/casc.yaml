@@ -1,0 +1,12 @@
+jenkins:
+  numExecutors: 0
+  securityRealm:
+    github:
+      clientID: "${GITHUB_OAUTH_ID}"
+      clientSecret: "${GITHUB_OAUTH_SEGREDO}"
+  authorizationStrategy:
+    globalMatrix:
+      entries:
+        - user:
+            name: "wendel-ferreira"
+            permissions: ["Overall/Administer"]

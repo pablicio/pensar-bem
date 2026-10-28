@@ -1,0 +1,16 @@
+<h1>Contratos em uso</h1>
+
+<table>
+  <thead>
+    <tr><th>Equipamento</th><th>Canteiro</th><th>Devolução</th></tr>
+  </thead>
+  <tbody>
+    <% @contracts.each do |contrato| %>
+      <tr>
+        <td><%= contrato.equipment.patrimony %></td>
+        <td><%= contrato.site %></td>
+        <td><%= l(contrato.end_date) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
